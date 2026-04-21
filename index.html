@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Passport Portal</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="glow-ball"></div>
+
+    <div class="main-container">
+        <nav class="sidebar">
+            <div class="logo">
+                <img src="https://cdn-icons-png.flaticon.com/512/833/833444.png" alt="Logo">
+                <span>E-Passport</span>
+            </div>
+            <div class="menu-list">
+                <div class="menu-item active" id="menu-personal" onclick="showSection('personal')">1. Application</div>
+                <div class="menu-item" id="menu-docs" onclick="showSection('docs')">2. Documents</div>
+                <div class="menu-item" id="menu-payment" onclick="showSection('payment')">3. Payment</div>
+            </div>
+        </nav>
+
+        <div class="content-box">
+
+            <section id="personal" class="section active">
+                <h2 class="title">New Application</h2>
+                <div class="selection-grid">
+                    <div class="card glass" id="card-normal" onclick="toggleDetails('normal')">
+                        <div class="icon">📅</div>
+                        <h3>Normal</h3>
+                    </div>
+                    <div class="card glass" id="card-urgent" onclick="toggleDetails('urgent')">
+                        <div class="icon">⚡</div>
+                        <h3>Urgent</h3>
+                    </div>
+                </div>
+
+                <div id="dynamic-details" class="details-pane glass">
+                    <div class="customer-info-form">
+                        <h3>Applicant Information</h3>
+                        <div class="input-grid">
+                            <input type="text" placeholder="Full Name" class="full-width">
+                            <input type="text" placeholder="NIC Number">
+                            <input type="tel" placeholder="Phone Number">
+                            <input type="email" placeholder="Email Address">
+                            <input type="text" placeholder="Birth Certificate No">
+                            <input type="text" placeholder="Address" class="full-width">
+                        </div>
+                    </div>
+
+                    <div id="basis-info" class="basis-box">
+                        <hr class="sep">
+                        <p id="basis-text"></p>
+                    </div>
+
+                    <button class="action-btn" onclick="showSection('docs')">Continue</button>
+                </div>
+            </section>
+
+            <section id="docs" class="section">
+                <h2 class="title">Upload Documents</h2>
+                <div class="upload-area glass">
+                    <p>Tap to upload NIC Scan</p>
+                    <input type="file">
+                </div>
+                <button class="action-btn" onclick="showSection('payment')">Go to Payment</button>
+            </section>
+
+            <section id="payment" class="section">
+                <h2 class="title">Payment</h2>
+                <div class="payment-card glass">
+                    <input type="text" placeholder="Card Number">
+                    <div class="input-grid">
+                        <input type="text" placeholder="MM/YY">
+                        <input type="password" placeholder="CVV">
+                    </div>
+                </div>
+                <button class="submit-btn" onclick="finalSubmit()">Submit Now</button>
+            </section>
+
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
